@@ -1,0 +1,287 @@
+.jd_layout{ 
+    /* xxxx */
+    width: 100%;
+    height: 2000px;
+    max-width: 640px;
+    /* 是根据iphone5的宽度来说的 */
+    min-width: 320px;
+    background-color: skyblue;
+    margin: 0 auto;
+}
+
+/* --------搜索区域--------  */
+.jd_search{
+    width: 100%;
+    max-width: 640px;
+    height: 40px;
+    /* position不光进行了固定定位，还是一个参考点 */
+    position: fixed;
+    z-index: 1000;
+    background-color: yellowgreen;
+}
+.jd_logo{
+    /* a标签是女标签不能设置宽度和高度 */
+    width: 56px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    /* 设计图一般是二倍图或三倍图 */
+    background: url("../images/jd-sprites.png");
+    background-size: 200px 200px;
+    background-position: 0 -108px;
+}
+.jd_login{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+}
+.jd_searchBox{
+    width: 100%;
+    height: 100%;
+    padding-left: 76px;
+    padding-right: 50px;
+}
+.jd_searchBox input{
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding-left: 30px;
+}
+/* 伪元素 在form内部最前面添加一个元素*/
+.jd_searchBox::before{
+    width: 27px;
+    height: 23px;
+    background: url("../images/jd-sprites.png");
+    background-size: 200px 200px;
+    background-position: -57px -108px;
+    content: "";
+    position: absolute;
+    left: 80px;
+    top: 8px;
+}
+/* --------轮播图的样式--------  */
+.jd_banner{
+    width: 100%;
+    /* 里面的长盒子的参考点 */
+    position: relative;
+    /* 超出小盒子的部分 需要隐藏掉 */
+    overflow: hidden;
+
+    /* height: 311.11px; */
+}
+.js_bannerWrap{
+    /* 子元素浮动了，父元素不想塌陷，设置overflow:hidden */
+    /* overflow: hidden;本意处理超出部分的  但是它还有一个小偏方 */
+    /* 这个小偏方就是清除浮动所造成的影响 */
+    overflow: hidden;
+
+    /* 640*8  长盒子 */
+    width: 800%;
+    /* 进行绝对定位 目的就是改变left 就是让它动起来 */
+    /* position: absolute; 
+    left: 0px; */
+}
+.js_bannerWrap li{
+    /* ul里面的li都浮动了，父元素就塌陷（高度变成0了） */
+    width: 12.5%;
+    /* 让男标签并排显示 使用flex或浮动 */
+    float: left;
+}
+.js_bannerWrap li img{
+    width: 100%;
+    /* img标签默认下面有一个小白边  display:block去掉这个小白边 */
+    display: block;
+}
+.jd_bannerDot{
+    width: 128px;
+    height: 10px;
+    /* background-color: pink; */
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    /* 清除浮动 */
+    overflow: hidden;
+}
+.jd_bannerDot li{
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    border: 1px solid green;
+    float: left;
+    margin-left: 10px;
+}
+/* li:first-of-type选中第1个li */
+.jd_bannerDot li:first-of-type{
+    margin-left: 0px;
+}
+.jd_bannerDot li.on{
+    background-color: green;
+}
+/* --------导航区域--------  */
+.jd_nav{
+    width: 100%;
+    padding: 10px 0;
+    background-color: #fff;
+}
+.jd_nav ul{
+    /* 清除浮动对父元素所造成的影响 */
+    /* 也叫清除浮动 */
+    /* 使用overflow小偏方 */
+    overflow: hidden;
+
+    /* ul没有设置宽度 默认宽度也是100% */
+}
+.jd_nav ul li{
+    /* 浮动目的：让块级元素可以并排显示 */
+    float: left;
+    width: 25%;
+    /* text-align: center; 让盒子中的文本水平居中 如果盒子中有图片，它也可以让图片水平居中 */
+    text-align: center;
+    margin-top: 8px;
+    /* 当ul装不下li时，它会自动换行 */
+}
+.jd_nav ul li img{
+    width: 60px;
+    height: 60px;
+}
+.jd_nav ul li p{
+    line-height: 25px;
+}
+/* --------撑上秒杀区域--------  */
+.jd_goods{
+    width: 100%;
+}
+.jd_goodsBox{
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #ccc;
+}
+.jd_goodsBox .jd_pTip{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.jd_goodsBox .jd_pTip .jd_left{
+    float: left;
+    margin-left: 10px;
+}
+.jd_goodsBox .jd_pTip .jd_left .jd_icon{
+    /* 元素浮动了，自动变成男标签 */
+    width: 16px;
+    height: 20px;
+    background: url("../images/seckill-icon.png");
+    background-size: 16px 20px;
+    margin-top: 5px;
+}
+.jd_goodsBox .jd_pTip .jd_left .jd_text{
+    color: #e92322;
+    font-weight: bold;
+}
+.jd_goodsBox .jd_pTip .jd_left .jd_time span{
+    /* 这里面的span是没有浮动的 不能设置宽度和高度 */
+    width: 13px;
+    height: 18px;
+    /* inline-block是行内块  人妖 */
+    /* 人妖：1）可以设置宽高  2）并排显示 */
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+}
+.jd_goodsBox .jd_pTip .jd_right{
+    float: right;
+    margin-right: 10px;
+}
+
+.jd_goodsBox .jd_Conttent{
+    width: 100%;
+    padding: 20px;
+}
+.jd_goodsBox .jd_Conttent ul{
+    width: 100%;
+    overflow: hidden;
+}
+.jd_goodsBox .jd_Conttent ul li{
+    width: 33.33333%;
+    float: left;
+    text-align: center;
+}
+.jd_goodsBox .jd_Conttent ul li img{
+    width: 60%;
+}
+
+/* --------京东商品--------  */
+.jd_productBox{
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #ccc;
+}
+.jd_productBox .jd_pTip{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+    color: #666;
+}
+
+.jd_productBox .jd_pTip h3{
+    position: relative;
+    padding-left: 10px;
+}
+
+.jd_productBox .jd_pTip h3::before{
+    content: "";
+    width: 3px;
+    height: 12px;
+    background-color: skyblue;
+    position: absolute;
+    left: 0px;
+    top: 8px;
+}
+.jd_productBox .jd_pContent .a1{
+    display: block;
+    width: 50%;
+}
+.jd_productBox .jd_pContent .a1 img{
+    width: 100%;
+    display: block;
+}
+.jd_productBox .jd_pContent .b_left{
+    border-left: 1px solid #ccc;
+}
+.jd_productBox .jd_pContent .b_bottom{
+    border-bottom: 1px solid #ccc;
+}
+
+
+
+/* --------搜索区域--------  */
+/* --------搜索区域--------  */
+/* --------搜索区域--------  */
+/* --------搜索区域--------  */
+/* --------搜索区域--------  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
